@@ -1,18 +1,18 @@
 !pip install adafruit-io
 
 x = "shrishailhiremath" #ADAFRUIT_IO_USERNAME
-y = "aio_LfPv81jutOaJb5zmJ1aRk4PTI7mG" #ADAFRUIT_IO_KEY
+y = "aio_hMNj21jOTGMi6Lwr7kNjgcwRuTNv" #ADAFRUIT_IO_KEY
 from Adafruit_IO import Client, Feed
 aio = Client(x,y)
 
 #create a new feed
-new = Feed(name='telegrambot') #feed name is given
+new = Feed(name='telegrambot1') #feed name is given
 result = aio.create_feed(new)
 result
 from Adafruit_IO import Data
 #sending a value to afeed
 value =Data(value=0)
-value_send = aio.create_data('telegrambot',value)
+value_send = aio.create_data('telegrambot1',value)
 
 !pip install python-telegram-bot
 
@@ -33,7 +33,7 @@ def on(bot,update):
     bot.send_photo(chat_id,pic)
     from Adafruit_IO import Data
     value = Data(value=1)
-    value_send = aio.create_data('telegrambot',value)
+    value_send = aio.create_data('telegrambot1',value)
  
 def off(bot,update):
     url = get_url()
@@ -43,7 +43,7 @@ def off(bot,update):
     bot.send_message(chat_id,txt)
     bot.send_photo(chat_id,pic)
     value = Data(value=0)
-    value_send = aio.create_data('telegrambot',value)
+    value_send = aio.create_data('telegrambot1',value)
 
 u = Updater('1304573162:AAHP-32tgIzwv1cl754r06diyxeq0fTOdEM')  #change the token
 dp = u.dispatcher
