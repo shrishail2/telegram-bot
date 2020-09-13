@@ -1,9 +1,10 @@
 !pip install adafruit-io
-import os #operating system
+
 x = "shrishailhiremath" #ADAFRUIT_IO_USERNAME
 y = "aio_LfPv81jutOaJb5zmJ1aRk4PTI7mG" #ADAFRUIT_IO_KEY
 from Adafruit_IO import Client, Feed
 aio = Client(x,y)
+
 #create a new feed
 new = Feed(name='telegrambot') #feed name is given
 result = aio.create_feed(new)
@@ -12,7 +13,9 @@ from Adafruit_IO import Data
 #sending a value to afeed
 value =Data(value=0)
 value_send = aio.create_data('telegrambot',value)
+
 !pip install python-telegram-bot
+
 from telegram.ext import Updater,CommandHandler
 import requests  # Getting the data from the cloud
 
@@ -42,7 +45,7 @@ def off(bot,update):
     value = Data(value=0)
     value_send = aio.create_data('telegrambot',value)
 
-u = Updater('')  #change the token
+u = Updater('1304573162:AAHP-32tgIzwv1cl754r06diyxeq0fTOdEM')  #change the token
 dp = u.dispatcher
 dp.add_handler(CommandHandler('on',on))
 dp.add_handler(CommandHandler('off',off))
