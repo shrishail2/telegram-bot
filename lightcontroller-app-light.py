@@ -6,7 +6,7 @@ from Adafruit_IO import Client, Feed
 aio = Client(x,y)
 
 #create a new feed
-new = Feed(name='telegrambot1') #feed name is given
+new = Feed(name='telegrambot2') #feed name is given
 result = aio.create_feed(new)
 result
 from Adafruit_IO import Data
